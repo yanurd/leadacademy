@@ -9,6 +9,15 @@ function inicio(e) {
 
   const b = admin.find(i => i.email === email)
   console.log(b)
+  if (b == null){
+    output = `
+    <div class="alert alert-dismissible alert-danger">
+    <button id="errorr" type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Error!</strong> las credenciales no concuerdan con nuestros registros.</div>
+    `;
+    document.getElementById("error").innerHTML = output;
+    document.getElementById("errorr").addEventListener("click", cerrar);
+  }
   if (b.email === email && b.contraseña == psw) {
     const log = true;
     localStorage.setItem("log", log);
